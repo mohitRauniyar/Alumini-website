@@ -62,6 +62,9 @@ public class AuthController {
         }
         try {
             Alumini validAlumini = aluminiService.findByRegistrationNumber(registrationNumber);
+            if(validAlumini == null){
+                return new ResponseEntity<>("Incorrect Credentials", HttpStatus.BAD_REQUEST);
+            }
             boolean validPassword = BCrypt.checkpw(password, validAlumini.getPassword());
             if (!validPassword) {
                 return new ResponseEntity<>("Incorrect Credentials", HttpStatus.BAD_REQUEST);
