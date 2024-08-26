@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AluminiRepository extends MongoRepository<Alumini, ObjectId> {
+    Alumini findByRegistrationNumber(String registrationNumber);
 }
