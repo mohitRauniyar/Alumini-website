@@ -76,6 +76,7 @@ public class AuthController {
                     .compact();
             Cookie cookie = new Cookie("access_token", token);
             cookie.setHttpOnly(true);
+            cookie.setPath("/api");
             response.addCookie(cookie);
             validAlumini.setPassword(null);
 
