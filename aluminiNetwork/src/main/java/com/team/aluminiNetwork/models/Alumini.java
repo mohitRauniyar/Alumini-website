@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "alumini")
 @Data
 @Getter
 @Setter
@@ -34,4 +34,5 @@ public class Alumini {
     private String password;
     private String workingCountry;
     private String workingCity;
+    private byte[] profilePicture;
 }
