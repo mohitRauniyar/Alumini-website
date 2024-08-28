@@ -34,4 +34,5 @@ public class Alumini {
     private String password;
     private String workingCountry;
     private String workingCity;
+    private byte[] profilePicture;
 }
