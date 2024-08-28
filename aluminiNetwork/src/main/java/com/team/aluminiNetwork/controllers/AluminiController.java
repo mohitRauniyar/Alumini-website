@@ -27,12 +27,13 @@ public class AluminiController {
         this.jwtUtil = jwtUtil;
     }
 
-    @PutMapping("/update/{userId}")
-    public ResponseEntity<?> updateProfile(@Valid @RequestBody UpdateProfileRequest updateRequest, @RequestParam String userId){
-        Alumini alumini = updateRequest.getAlumini();
-        String currentUserId = updateRequest.getCurrentUserId();
-        if(!Objects.equals(currentUserId, userId)){
-            return new ResponseEntity<>("You are not allowed to update this user.", HttpStatus.BAD_REQUEST);
+    @PutMapping("/update")
+    public ResponseEntity<?> updateProfile(@Valid @RequestBody Alumini alumini, @CookieValue("access_token") String cookie){
+        String id;
+        try {
+            id = jwtUtil.extractId(cookie);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Invalid access token.", HttpStatus.UNAUTHORIZED);
         }
         if(alumini.getPassword().length() < 6){
             return new ResponseEntity<>("Password must be at least 6 characters.", HttpStatus.BAD_REQUEST);
@@ -42,13 +43,12 @@ public class AluminiController {
         }
         alumini.setPassword(BCrypt.hashpw(alumini.getPassword(), BCrypt.gensalt()));
         try{
-            aluminiService.findByIdAndUpdate(alumini, currentUserId);
+            aluminiService.findByIdAndUpdate(alumini, id);
             return new ResponseEntity<>("Profile updated Successfully.", HttpStatus.OK);
         }catch(DataIntegrityViolationException e){
             return new ResponseEntity<>("Profile not found.", HttpStatus.BAD_REQUEST);
         }catch(Exception e){
             return new ResponseEntity<>("Internal Server Error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 }
