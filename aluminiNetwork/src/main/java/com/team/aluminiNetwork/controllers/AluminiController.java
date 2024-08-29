@@ -83,4 +83,16 @@ public class AluminiController {
 
     }
 
+    @PostMapping("/signout")
+    public ResponseEntity<?> signout(@CookieValue("access_token") String cookie){
+        ResponseCookie deleteCookie = ResponseCookie.from("access_token", "")
+                .path("/")
+                .maxAge(0)
+                .httpOnly(true)
+                .build();
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.SET_COOKIE, deleteCookie.toString())
+                .body("User signed out successfully.");
+    }
 }
