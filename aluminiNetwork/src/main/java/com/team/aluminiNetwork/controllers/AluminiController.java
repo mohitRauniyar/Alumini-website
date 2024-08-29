@@ -1,6 +1,7 @@
 package com.team.aluminiNetwork.controllers;
 
 import com.team.aluminiNetwork.models.Alumini;
+import com.team.aluminiNetwork.models.Password;
 import com.team.aluminiNetwork.models.UpdateProfileRequest;
 import com.team.aluminiNetwork.services.AluminiService;
 import com.team.aluminiNetwork.utils.JwtUtil;
@@ -8,7 +9,9 @@ import jakarta.validation.Valid;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,4 +54,33 @@ public class AluminiController {
             return new ResponseEntity<>("Internal Server Error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteAlumini(@Valid @RequestBody Password password, @CookieValue("access_token") String cookie){
+        String id;
+        try {
+            id = jwtUtil.extractId(cookie);
+            System.out.println(id);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Invalid access token.", HttpStatus.UNAUTHORIZED);
+        }
+        Alumini alumini = aluminiService.findById(id);
+        boolean validPassword = BCrypt.checkpw(password.getPassword(), alumini.getPassword());
+        if (!validPassword) {
+            return new ResponseEntity<>("Incorrect Credentials", HttpStatus.FORBIDDEN);
+        }
+        aluminiService.deleteAluminiById(id);
+
+        // Create a cookie with the same name and set its max age to 0 to delete it
+        ResponseCookie deleteCookie = ResponseCookie.from("access_token", "")
+                .path("/")
+                .maxAge(0)
+                .httpOnly(true)
+                .build();
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.SET_COOKIE, deleteCookie.toString())
+                .body("Alumni record deleted and access token cookie removed.");
+
+    }
+
 }

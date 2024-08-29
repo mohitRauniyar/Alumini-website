@@ -11,4 +11,7 @@ public interface AluminiRepository extends MongoRepository<Alumini, ObjectId> {
 
     Alumini findByRegistrationNumber(String registrationNumber);
 
+    Alumini findById(String id);
+
+    void deleteById(String id);
 }
