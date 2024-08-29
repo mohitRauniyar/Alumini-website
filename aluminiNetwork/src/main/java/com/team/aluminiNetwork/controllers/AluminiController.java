@@ -72,7 +72,7 @@ public class AluminiController {
 
         // Create a cookie with the same name and set its max age to 0 to delete it
         ResponseCookie deleteCookie = ResponseCookie.from("access_token", "")
-                .path("/")
+                .path("/api")
                 .maxAge(0)
                 .httpOnly(true)
                 .build();
@@ -86,7 +86,7 @@ public class AluminiController {
     @PostMapping("/signout")
     public ResponseEntity<?> signout(@CookieValue("access_token") String cookie){
         ResponseCookie deleteCookie = ResponseCookie.from("access_token", "")
-                .path("/")
+                .path("/api")
                 .maxAge(0)
                 .httpOnly(true)
                 .build();
