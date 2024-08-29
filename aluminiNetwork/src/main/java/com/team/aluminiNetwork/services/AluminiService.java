@@ -28,6 +28,7 @@ public class AluminiService {
     public void saveAlumini(Alumini alumini) {
         aluminiRepository.save(alumini);
     }
+    public Alumini findById(String id){return aluminiRepository.findById(id);}
 
     public Alumini findByRegistrationNumber(String registrationNumber) {
         return aluminiRepository.findByRegistrationNumber(registrationNumber);
@@ -50,5 +51,9 @@ public class AluminiService {
         if (result.getMatchedCount() == 0) {
             throw new DataIntegrityViolationException("No document found with the given registration number");
         }
+    }
+
+    public void deleteAluminiById(String id) {
+        aluminiRepository.deleteById(id);
     }
 }

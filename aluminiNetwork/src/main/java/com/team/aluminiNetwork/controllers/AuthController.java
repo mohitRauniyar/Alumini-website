@@ -63,11 +63,11 @@ public class AuthController {
         try {
             Alumini validAlumini = aluminiService.findByRegistrationNumber(registrationNumber);
             if(validAlumini == null){
-                return new ResponseEntity<>("Incorrect Credentials", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("Incorrect Credentials", HttpStatus.FORBIDDEN);
             }
             boolean validPassword = BCrypt.checkpw(password, validAlumini.getPassword());
             if (!validPassword) {
-                return new ResponseEntity<>("Incorrect Credentials", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("Incorrect Credentials", HttpStatus.FORBIDDEN);
             }
             String token = Jwts.builder()
                     .setSubject(validAlumini.getId().toString())
