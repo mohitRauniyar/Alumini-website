@@ -80,7 +80,7 @@ public class AuthController {
             response.addCookie(cookie);
             validAlumini.setPassword(null);
 
-            return new ResponseEntity<>(validAlumini, HttpStatus.OK);
+            return new ResponseEntity<>("Login Successful.", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Error occurred during signin", HttpStatus.INTERNAL_SERVER_ERROR);
         }
