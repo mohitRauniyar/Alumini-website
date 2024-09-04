@@ -3,7 +3,7 @@ import Home from './pages/Home/Home';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import NavBar from './components/NavBar/NavBar';
-
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
+      <ToastContainer theme="colored" />
     </Router>
     
   )
