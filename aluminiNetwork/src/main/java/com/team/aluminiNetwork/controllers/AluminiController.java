@@ -29,6 +29,9 @@ public class AluminiController {
 
     @PutMapping("/update")
     public ResponseEntity<?> updateProfile(@Valid @RequestBody Alumini alumini, @CookieValue("access_token") String cookie){
+        if(cookie.isEmpty()){
+            return new ResponseEntity<>("No cookie captured.", HttpStatus.BAD_REQUEST);
+        }
         String id;
         try {
             id = jwtUtil.extractId(cookie);
@@ -53,6 +56,9 @@ public class AluminiController {
     }
     @DeleteMapping("/delete")
     public ResponseEntity<?> deleteAlumini(@Valid @RequestBody Password password, @CookieValue("access_token") String cookie){
+        if(cookie.isEmpty()){
+            return new ResponseEntity<>("No cookie captured.", HttpStatus.BAD_REQUEST);
+        }
         String id;
         try {
             id = jwtUtil.extractId(cookie);
