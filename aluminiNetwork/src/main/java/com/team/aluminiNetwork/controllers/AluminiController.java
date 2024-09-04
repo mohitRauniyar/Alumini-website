@@ -2,7 +2,6 @@ package com.team.aluminiNetwork.controllers;
 
 import com.team.aluminiNetwork.models.Alumini;
 import com.team.aluminiNetwork.models.Password;
-import com.team.aluminiNetwork.models.UpdateProfileRequest;
 import com.team.aluminiNetwork.services.AluminiService;
 import com.team.aluminiNetwork.utils.JwtUtil;
 import jakarta.validation.Valid;
@@ -14,8 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/alumini")
