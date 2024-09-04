@@ -1,27 +1,56 @@
 import { useState } from "react";
-import { validateEmail } from "../../utils/helper";
 import PasswordInput from "../../components/input/PasswordInput";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import 'react-toastify/dist/ReactToastify.css';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import { toast } from 'react-toastify';
 
-
-const Login = () => {
-    const [error, setError] = useState(null);
-    const [email, setEmail] = useState("");
+const Login = () => {   
+    const [registrationNumber, setRegistrationNumber] = useState("");
     const [password, setPassword] = useState("")
+    const [loading,setLoading]=useState(false);
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        if (!validateEmail(email)) {
-            setError("Please enter a valid email address")
+        if (!registrationNumber) {
+            toast.error("Please enter a valid registration number")
             return;
         }
 
         if (!password) {
-            setError("Please enter the password")
+            toast.error("Please enter the password")
             return;
         }
-        setError("")
+        
+        setLoading(true);
+        const form = {
+            registrationNumber:registrationNumber.trim().toLowerCase(),
+            password:password
+        }
+        try {
+            const URL = 'http://localhost:9001/api/auth/signin'
+            const response = await fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(form),
+                credentials:'include'
+            });
+            const result = await response.text();
+            setLoading(false);  
+            if (!response.ok) {
+                toast.error(result);
+                return;
+            }
+            toast.success(result);
+            navigate("/dashboard");
+        } catch (err) {
+            toast.error(err);
+        }
     }
 
     return (
@@ -31,14 +60,13 @@ const Login = () => {
                     <h4 className="text-2xl mb-7">
                         Login
                     </h4>
-                    <input type="text" placeholder="Email" className="input-box"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                    <input type="text" placeholder="Registration number" className="px-2 input-box"
+                        value={registrationNumber}
+                        onChange={(e) => setRegistrationNumber(e.target.value)}
                     />
                     <PasswordInput value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    {error && <p className="pb-1 text-xs text-red-500">{error}</p>}
 
                     <button type="submit" className="btn-primary">
                         Login
@@ -49,6 +77,9 @@ const Login = () => {
                         <Link to="/signup" className="font-medium underline text-primary">Create an Account</Link>
                     </p>
                 </form>
+                {loading?(<Box sx={{ display: 'flex',justifyContent:'center' }}>
+                        <CircularProgress />
+                    </Box>):null}
             </div>
         </div>
     )

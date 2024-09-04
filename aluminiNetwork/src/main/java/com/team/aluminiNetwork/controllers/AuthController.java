@@ -25,7 +25,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/api/auth")
-public class AuthController {
+public class    AuthController {
     private final AluminiService aluminiService;
     private final JwtUtil jwtUtil;
     @Autowired
@@ -36,7 +36,9 @@ public class AuthController {
     }
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@Valid @RequestBody Alumini alumini){
+        System.out.println(alumini.toString());
         if (alumini.getFirstname() == null || alumini.getEmail() == null || alumini.getPassword() == null || alumini.getRegistrationNumber() == null) {
+            System.out.println("Hi");
             return new ResponseEntity<String>("All fields are required", HttpStatusCode.valueOf(400));
         }
         alumini.setPassword(BCrypt.hashpw(alumini.getPassword(), BCrypt.gensalt()));

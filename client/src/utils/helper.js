@@ -21,11 +21,11 @@ export const validateDate = (date) => {
     return false;
 }
 export const validateForm = (form)=>{
-    const firstName = getName(form.firstName);
-    const lastName = getName(form.lastName);
+    const firstname = getName(form.firstname);
+    const lastname = getName(form.lastname);
     const registrationNumber = form.registrationNumber.trim()
-    const email = form.email.trim();
-    return {...form,firstName:firstName,lastName:lastName,registrationNumber:registrationNumber,email:email};
+    const email = form.email.trim().toLowerCase();
+    return {...form,firstname:firstname,lastname:lastname,registrationNumber:registrationNumber,email:email};
 }
 
 const getName = (name)=>{
