@@ -1,9 +1,7 @@
 package com.team.aluminiNetwork.models;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class SigninRequest {
     private String registrationNumber;
     private String password;

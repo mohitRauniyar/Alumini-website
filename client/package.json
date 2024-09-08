@@ -17,6 +17,7 @@
     "firebase": "^10.13.1",
     "flowbite-react": "^0.10.1",
     "mui-file-input": "^6.0.0",
+    "client": "file:",
     "react": "^18.3.1",
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.3.1",
