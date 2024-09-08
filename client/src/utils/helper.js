@@ -28,7 +28,7 @@ export const validateForm = (form)=>{
     return {...form,firstname:firstname,lastname:lastname,registrationNumber:registrationNumber,email:email};
 }
 
-const getName = (name)=>{
+export const getName = (name)=>{
     let array = name.trim().split(" ");
     let newName = "";
     array.forEach((val)=>{

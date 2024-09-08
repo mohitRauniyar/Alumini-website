@@ -60,7 +60,7 @@ const Login = () => {
                     <h4 className="text-2xl mb-7">
                         Login
                     </h4>
-                    <input type="text" placeholder="Registration number" className="px-2 input-box"
+                    <input type="text" placeholder="Registration number" className="px-2 input-box border-[1px]"
                         value={registrationNumber}
                         onChange={(e) => setRegistrationNumber(e.target.value)}
                     />

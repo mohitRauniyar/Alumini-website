@@ -1,7 +1,7 @@
-
+import UpcomingEvents from "./UpcomingEvent"
 const Home = () => {
   return (
-    <div>Home</div>
+    <UpcomingEvents/>
   )
 }
 

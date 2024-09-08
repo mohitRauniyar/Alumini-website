@@ -25,7 +25,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/api/auth")
-public class    AuthController {
+public class AuthController {
     private final AluminiService aluminiService;
     private final JwtUtil jwtUtil;
     @Autowired

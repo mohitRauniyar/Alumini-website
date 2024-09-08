@@ -41,7 +41,7 @@ public class AluminiController {
         if(alumini.getFirstname() == null || alumini.getFirstname().matches("/^[A-Za-z]{2,}/")){
             return new ResponseEntity<>("Please input a valid firstname.", HttpStatus.BAD_REQUEST);
         }
-        alumini.setPassword(BCrypt.hashpw(alumini.getPassword(), BCrypt.gensalt()));
+//        alumini.setPassword(BCrypt.hashpw(alumini.getPassword(), BCrypt.gensalt()));
         try{
             aluminiService.findByIdAndUpdate(alumini, id);
             return new ResponseEntity<>("Profile updated Successfully.", HttpStatus.OK);
