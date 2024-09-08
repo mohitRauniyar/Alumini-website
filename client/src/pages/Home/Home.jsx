@@ -1,7 +1,15 @@
-
+import Feed from './Feed'
+import UpcomingEvents from './UpcomingEvents'
+import ConnectCard from './ConnectCard'
+import HomePage from './HomePage'
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <HomePage />
+      <UpcomingEvents />
+      <Feed />
+      <ConnectCard />
+    </>
   )
 }
 
