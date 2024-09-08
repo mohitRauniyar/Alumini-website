@@ -24,7 +24,7 @@ public class PostController {
         this.jwtUtil = jwtUtil;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public ResponseEntity<?> createPost(@RequestBody PostRequest postRequest, @CookieValue("access_token") String cookie) {
         if (cookie.isEmpty()) {
             return ResponseEntity.badRequest().body("No cookie captured.");
@@ -37,18 +37,18 @@ public class PostController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid access token.");
         }
 
-        if (postRequest.getTitle() == null || postRequest.getDescription() == null) {
+        if (postRequest.getCategory() == null || postRequest.getCaption() == null) {
             return ResponseEntity.badRequest().body("All fields are required.");
         }
 
         try {
             Post post = new Post();
             post.setOwner(userId);
-            post.setTitle(postRequest.getTitle());
-            post.setDescription(postRequest.getDescription());
+            post.setCategory(postRequest.getCategory());
+            post.setCaption(postRequest.getCaption());
             post.setPostedOn(new Date());
-            post.setImage(postRequest.getImage());
-
+            post.setMedia(postRequest.getMedia());
+            
             postService.createPost(post);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while creating the post.");
@@ -86,14 +86,14 @@ public class PostController {
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("You are not authorized to update this post.");
             }
 
-            if (updateRequest.getTitle() != null) {
-                existingPost.setTitle(updateRequest.getTitle());
+            if (updateRequest.getCategory() != null) {
+                existingPost.setCategory(updateRequest.getCategory());
             }
-            if (updateRequest.getDescription() != null) {
-                existingPost.setDescription(updateRequest.getDescription());
+            if (updateRequest.getCaption() != null) {
+                existingPost.setCaption(updateRequest.getCaption());
             }
-            if (updateRequest.getImage() != null) {
-                existingPost.setImage(updateRequest.getImage());
+            if (updateRequest.getMedia() != null) {
+                existingPost.setMedia(updateRequest.getMedia());
             }
 
             postService.updatePost(existingPost);

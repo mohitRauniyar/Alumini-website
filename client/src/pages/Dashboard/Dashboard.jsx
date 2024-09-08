@@ -45,9 +45,6 @@ function Dashboard() {
   const [uploadSucceededFiles, setUploadSucceededFiles] = useState([]);
   const [percentage, setPercentage] = useState(0);
 
-  //   console.log("hhhhhh : " + uploadSucceededFiles.length);
-
-  //   console.log(formData);
   const handleDataChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -79,12 +76,6 @@ function Dashboard() {
     }
     setFileUrls((prev) => [...prev, ...urls]);
   };
-  /* 
-  useEffect(() => {
-    if (fileUrls.length > 0) {
-    //   console.log(fileUrls);
-    }
-  }, [fileUrls]); */
 
   const uploadToStorage = async () => {
     const storage = getStorage(app);
@@ -139,7 +130,7 @@ function Dashboard() {
 
     try {
       const uploadedFiles = await uploadToStorage();
-      // Only update formData after the media has been uploaded
+
       const updatedFormData = {
         ...formData,
         media: uploadedFiles,
@@ -163,17 +154,17 @@ function Dashboard() {
       setUploadSucceededFiles([]);
       setFileUrls([]);
       setImages({});
-      // Reset formData after submission
 
-      const res = await fetch("/api/post/create", {
+      const res = await fetch("http://localhost:9001/api/post/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(Data),
+        credentials: 'include'
       });
 
-      const data = await res.json();
+      const data = await res.text();
       if (res.ok) {
         return toast.success(data);
       }
