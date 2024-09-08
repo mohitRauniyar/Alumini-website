@@ -11,7 +11,6 @@ const Home = () => {
       <Feed />
       <ConnectCard />
     </>
-    <UpcomingEvents/>
   )
 }
 
