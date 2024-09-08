@@ -21,7 +21,7 @@ const Feed = () => {
 
   return (
     <div className="w-full bg-gray-100 shadow-md py-4">
-      <Card className="p-0 md:w-[600px] w-full mx-auto">
+      <Card className="p-0 w-full mx-auto">
         <div className="flex items-center p-4">
           <Avatar
             img="https://imgs.search.brave.com/a0KvNjBZHEFt5LRuf4VM9ntFc0we3swZxm9kIPZzQIY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAxLzY2LzM5LzU0/LzM2MF9GXzE2NjM5/NTQwMl9VY2JhUzVa/NVRqMXJFYk12emhI/UjFVN0RwQ2dDV2Qz/ci5qcGc"

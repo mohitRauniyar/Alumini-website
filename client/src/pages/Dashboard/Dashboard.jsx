@@ -15,6 +15,7 @@ import {
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
+import Feed from "../Home/Feed.jsx";
 
 // firebase rules
 // rules_version = '2';
@@ -231,8 +232,16 @@ function Dashboard() {
                   <h4>Posting</h4>
                 </div>
               )}
-                  
-                  
+                 <Feed/> 
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
               
             </div>
             <div className="right-side h-max lg:w-1/4 md:w-1/5 w-full flex flex-col gap-4 sticky top-20 right-0">

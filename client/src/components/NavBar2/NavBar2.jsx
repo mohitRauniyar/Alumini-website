@@ -6,6 +6,7 @@ import { RiMessage3Line } from "react-icons/ri";
 import { SlCalender } from "react-icons/sl";
 import { SlBriefcase } from "react-icons/sl";
 import Notification from "../Notification/Notification";
+import { Outlet } from "react-router-dom";
 
 const NavBar2 = ({ userInfo }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -66,7 +67,7 @@ const NavBar2 = ({ userInfo }) => {
 
     // </div>
       
-
+      <>
       <div className="flex items-center justify-between px-3 py-2 bg-white drop-shadow lg:px-6 sticky z-50 top-0 left-0">
         <h2 className="py-2 text-xs font-medium text-black lg:text-xl">
           AlumConnect
@@ -105,6 +106,8 @@ const NavBar2 = ({ userInfo }) => {
           <ProfileInfo userInfo={userInfo} />
         </div>
       </div>
+        <Outlet/>
+                </>
   );
 };
 
