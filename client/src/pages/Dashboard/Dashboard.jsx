@@ -226,11 +226,11 @@ function Dashboard() {
                   
               
             </div>
-            <div className="right-side h-max lg:w-1/4 md:w-1/5 w-full flex flex-col gap-4 sticky top-20 right-0">
-              <div className="bg-gradient-to-r from-blue-900 to-blue-600 shadow-lg w-full  p-8  rounded-md flex flex-col justify-evenly h-max gap-4">
-                <h1 className="text-white">Share what's on your mind...</h1>
+            <div className="right-side h-max lg:w-1/4 md:w-1/5 w-full flex flex-col gap-4 sticky md:top-20 top-16 right-0">
+              <div className="bg-gradient-to-r from-blue-900 to-blue-600 shadow-lg w-full  md:p-8 p-2 rounded-md flex flex-col justify-evenly h-max gap-4">
+                <h1 className="text-white hidden md:block">Share what's on your mind...</h1>
                 <Button
-                  className="mt-4"
+                  className="md:mt-4"
                   outline
                   color="dark"
                   onClick={() => {
@@ -307,7 +307,7 @@ function Dashboard() {
                   >
                     <option value="uncategorized"> Select an option</option>
                     <option value="achievement">Achievement</option>
-                    <option value="oppurtunity">Oppurtunity</option>
+                    <option value="opportunity">Opportunity</option>
                     <option value="experience">Experience</option>
                   </select>
                 </div>
