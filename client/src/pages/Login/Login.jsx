@@ -47,7 +47,7 @@ const Login = () => {
                 return;
             }
             toast.success(result);
-            navigate("/dashboard");
+            navigate("/alumini/dashboard");
         } catch (err) {
             toast.error(err);
         }

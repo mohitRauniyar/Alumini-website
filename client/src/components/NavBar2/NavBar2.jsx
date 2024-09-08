@@ -6,10 +6,16 @@ import { RiMessage3Line } from "react-icons/ri";
 import { SlCalender } from "react-icons/sl";
 import { SlBriefcase } from "react-icons/sl";
 import Notification from "../Notification/Notification";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { IoMenu } from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";
+
+
 
 const NavBar2 = ({ userInfo }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showNotifications, setShowNotifications] = useState(false);
+  const navigate = useNavigate()
 
   const handleNotificationClick = () => {
     setShowNotifications(!showNotifications);
@@ -25,6 +31,8 @@ const NavBar2 = ({ userInfo }) => {
     // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, []);
+
+
 
   const formattedTime = currentTime.toLocaleTimeString();
   const formattedDate = currentTime.toLocaleDateString();
@@ -65,12 +73,17 @@ const NavBar2 = ({ userInfo }) => {
     //   </div>
 
     // </div>
-      
 
+    <>
+          
       <div className="flex items-center justify-between px-3 py-2 bg-white drop-shadow lg:px-6 sticky z-50 top-0 left-0">
-        <h2 className="py-2 text-xs font-medium text-black lg:text-xl">
-          AlumConnect
-        </h2>
+        <div className="flex flex-row gap-4">
+          {/* <IoMenu size={16} className="self-center"/> */}
+          <h2 className="py-2 text-xs font-medium text-black lg:text-xl">
+            AlumConnect
+          </h2>
+
+        </div>
 
         <div className="flex items-center justify-between gap-2 lg:gap-4">
           <div className="flex-col hidden px-3 text-xs border-r-2 lg:text-sm text-slate-600 lg:flex">
@@ -79,13 +92,17 @@ const NavBar2 = ({ userInfo }) => {
           </div>
 
           <div className="flex items-center gap-2 lg:gap-7">
+            <Link to='/alumini/dashboard'>
+              <IoHomeOutline size={16}/>
+            </Link>
+            
             <div className="flex flex-col items-center gap-1">
               <SlCalender size={16} />
-              <p className="text-xs lg:text-sm">Events</p>
+              {/* <p className="text-xs lg:text-sm">Events</p> */}
             </div>
             <div className="flex flex-col items-center gap-1">
               <SlBriefcase size={16} />
-              <p className="text-xs lg:text-sm">Career</p>
+              {/* <p className="text-xs lg:text-sm">Career</p> */}
             </div>
           </div>
 
@@ -95,16 +112,19 @@ const NavBar2 = ({ userInfo }) => {
               <RiNotification3Line
                 size={18}
                 onClick={handleNotificationClick}
-                />
+              />
               <div className="absolute w-2 h-2 bg-red-700 rounded-full -right-1 -top-1"></div>
             </div>
           </div>
 
           {showNotifications && <Notification />}
-
-          <ProfileInfo userInfo={userInfo} />
+          <Link to='/alumini/profile'>
+            <ProfileInfo userInfo={userInfo} />
+          </Link>
         </div>
       </div>
+      <Outlet />
+    </>
   );
 };
 

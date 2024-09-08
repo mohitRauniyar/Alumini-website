@@ -16,14 +16,14 @@ function App() {
       <ToastContainer theme="colored" />
       <Routes>
         <Route path="/" element={<NavBar />}>
-          <Route path="/home" element={<Home />} />
+          <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Route>
         <Route path="/alumini" element={<NavBar2 />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="/noti" element={<Notification />} />
+          <Route path="noti" element={<Notification />} />
         </Route >
         {/* <Route path="/" element={<><NavBar/><Home /></>} />
         <Route path="/login" element={<><NavBar/><Login /></>} />

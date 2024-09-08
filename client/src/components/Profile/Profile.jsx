@@ -18,7 +18,7 @@ export const getData = async (cb)=>{
         if(!response.ok)throw new Error();
         const result = await response.json();
         cb(result);
-        console.log(result);
+        // console.log(result);
     }catch(err){
         return toast.error("Oops something went wrong");
     }
