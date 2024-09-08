@@ -1,0 +1,24 @@
+.modal-content {
+    min-height: fit-content;
+    min-height: 100vh; /* Maximum height to prevent modal from overflowing viewport */
+    overflow-y: auto; /* Scroll content if it overflows */
+}
+
+.modal-body {
+    min-height: fit-content; /* Ensure content scrolls within the modal */
+    overflow-y: auto;
+    padding: 1rem; /* Add padding to make it look good */
+}
+
+.modal-header {
+    position: sticky;
+    top: 0;
+    background-color: white; /* Keep header visible on scroll */
+    z-index: 100; /* Ensure it stays on top of the body content */
+}
+
+img {
+    margin:1px;
+    max-width: 100%; /* Ensure images don't overflow */
+    height: auto;
+}
