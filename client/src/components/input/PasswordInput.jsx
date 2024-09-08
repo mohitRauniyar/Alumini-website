@@ -11,12 +11,12 @@ const PasswordInput = ({value, onChange, placeholder}) => {
     }
 
   return (
-    <div className="flex items-center px-2 bg-transparent border-[1.5px]  rounded mb-3">
+    <div className="flex items-center pr-2 bg-transparent  border-[1px] rounded mb-3">
         <input value={value}
          onChange={onChange}
          type= {isShowPassword?'text':"password"}
          placeholder={placeholder || "Password"}
-         className="w-full py-3 mr-3 text-sm bg-transparent rounded outline-none"
+         className="w-full -ml-1 py-3 mr-3 text-sm bg-transparent rounded outline-none focus:ring-0 border-none"
         />
         {
             isShowPassword? <FaRegEye

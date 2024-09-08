@@ -18,7 +18,7 @@
   
   @layer components{
     .input-box{
-      @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none
+      @apply w-full text-sm bg-transparent px-5 py-3 rounded mb-4 outline-none border-slate-200
     }
   
     .btn-primary{
