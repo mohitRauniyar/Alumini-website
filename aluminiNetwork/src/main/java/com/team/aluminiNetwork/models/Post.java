@@ -19,9 +19,9 @@ public class Post {
     @Id
     private ObjectId id;
     private String owner;
-    private String title;
-    private String description;
+    private String category;
+    private String caption;
     private Date postedOn;
-    private String[] image;
+    private String[] media;
     private Integer likes = 0;
 }

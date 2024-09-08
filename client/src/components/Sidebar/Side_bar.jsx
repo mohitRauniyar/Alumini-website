@@ -20,9 +20,9 @@ export default function Side_bar() {
         },
         credentials: "include",
       });
-  
+
       const data = await res.text();
-  
+
       if (res.ok) {
         toast.success(data || "Signed out successfully!");
         navigate("/");
@@ -35,34 +35,44 @@ export default function Side_bar() {
   };
   return (
     <Sidebar aria-label="Sidebar with logo branding example">
-      <Sidebar.Logo img="" imgAlt=" logo"></Sidebar.Logo>
+      <Sidebar.Logo img="./src/assets/logo2.jpg" imgAlt=" logo"></Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <Link to="/alumini/dashboard">
-            <Sidebar.Item icon={MdSpaceDashboard} as='div'>Dashboard</Sidebar.Item>
+            <Sidebar.Item icon={MdSpaceDashboard} as="div">
+              Dashboard
+            </Sidebar.Item>
           </Link>
           <Link to="/alumini/search">
-            <Sidebar.Item icon={RiSearchEyeLine} as='div'>Search</Sidebar.Item>
+            <Sidebar.Item icon={RiSearchEyeLine} as="div">
+              Search
+            </Sidebar.Item>
           </Link>
           <Link to="/alumini/jobs">
-            <Sidebar.Item icon={RiMoneyRupeeCircleFill} as='div'>
+            <Sidebar.Item icon={RiMoneyRupeeCircleFill} as="div">
               Job Portal
             </Sidebar.Item>
           </Link>
           <Link to="/alumini/campus">
-            <Sidebar.Item icon={FaSchool} as='div'>Campus</Sidebar.Item>
+            <Sidebar.Item icon={FaSchool} as="div">
+              Campus
+            </Sidebar.Item>
           </Link>
           <Link to="/alumini/inbox">
-            <Sidebar.Item icon={HiMiniInboxStack} as='div'>Inbox</Sidebar.Item>
+            <Sidebar.Item icon={HiMiniInboxStack} as="div">
+              Inbox
+            </Sidebar.Item>
           </Link>
           <Link to="/alumini/events">
-            <Sidebar.Item icon={MdEventNote} as='div'>Events</Sidebar.Item>
+            <Sidebar.Item icon={MdEventNote} as="div">
+              Events
+            </Sidebar.Item>
           </Link>
           <Sidebar.Item
             onClick={handleSignout}
             icon={FaSignOutAlt}
             className="cursor-pointer"
-             as='div'
+            as="div"
           >
             Sign Out
           </Sidebar.Item>
