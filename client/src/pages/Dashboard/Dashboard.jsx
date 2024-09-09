@@ -46,9 +46,6 @@ function Dashboard() {
   const [uploadSucceededFiles, setUploadSucceededFiles] = useState([]);
   const [percentage, setPercentage] = useState(0);
 
-  //   console.log("hhhhhh : " + uploadSucceededFiles.length);
-
-  //   console.log(formData);
   const handleDataChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -80,12 +77,6 @@ function Dashboard() {
     }
     setFileUrls((prev) => [...prev, ...urls]);
   };
-  /* 
-  useEffect(() => {
-    if (fileUrls.length > 0) {
-    //   console.log(fileUrls);
-    }
-  }, [fileUrls]); */
 
   const uploadToStorage = async () => {
     const storage = getStorage(app);
@@ -140,7 +131,7 @@ function Dashboard() {
 
     try {
       const uploadedFiles = await uploadToStorage();
-      // Only update formData after the media has been uploaded
+
       const updatedFormData = {
         ...formData,
         media: uploadedFiles,
@@ -164,17 +155,17 @@ function Dashboard() {
       setUploadSucceededFiles([]);
       setFileUrls([]);
       setImages({});
-      // Reset formData after submission
 
-      const res = await fetch("/api/post/create", {
+      const res = await fetch("http://localhost:9001/api/post/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(Data),
+        credentials: 'include'
       });
 
-      const data = await res.json();
+      const data = await res.text();
       if (res.ok) {
         return toast.success(data);
       }
@@ -244,11 +235,11 @@ function Dashboard() {
                  <Feed/>
               
             </div>
-            <div className="right-side h-max lg:w-1/4 md:w-1/5 w-full flex flex-col gap-4 sticky top-20 right-0">
-              <div className="bg-gradient-to-r from-blue-900 to-blue-600 shadow-lg w-full  p-8  rounded-md flex flex-col justify-evenly h-max gap-4">
-                <h1 className="text-white">Share what's on your mind...</h1>
+            <div className="right-side h-max lg:w-1/4 md:w-1/5 w-full flex flex-col gap-4 sticky md:top-20 top-16 right-0">
+              <div className="bg-gradient-to-r from-blue-900 to-blue-600 shadow-lg w-full  md:p-8 p-2 rounded-md flex flex-col justify-evenly h-max gap-4">
+                <h1 className="text-white hidden md:block">Share what's on your mind...</h1>
                 <Button
-                  className="mt-4"
+                  className="md:mt-4"
                   outline
                   color="dark"
                   onClick={() => {
@@ -325,7 +316,7 @@ function Dashboard() {
                   >
                     <option value="uncategorized"> Select an option</option>
                     <option value="achievement">Achievement</option>
-                    <option value="oppurtunity">Oppurtunity</option>
+                    <option value="opportunity">Opportunity</option>
                     <option value="experience">Experience</option>
                   </select>
                 </div>

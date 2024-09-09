@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class PostRequest {
-    private String title;
-    private String description;
-    private String[] image;
+    private String category;
+    private String caption;
+    private String[] media;
 }
