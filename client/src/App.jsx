@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/Home';
+import LandingPage from './pages/LandingPage/LandingPage';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -16,7 +16,7 @@ function App() {
       <ToastContainer theme="colored" />
       <Routes>
         <Route path="/" element={<NavBar />}>
-          <Route index element={<Home />} />
+          <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Route>
