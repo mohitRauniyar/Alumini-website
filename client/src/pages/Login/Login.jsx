@@ -54,7 +54,7 @@ const Login = () => {
     }
 
     return (
-        <div className="flex items-center justify-center mt-20">
+        <div className="flex items-center justify-center  bg-gray-100 h-screen">
             <div className="py-10 bg-white border rounded w-96 px-7">
                 <form action="" onSubmit={handleLogin}>
                     <h4 className="text-2xl mb-7">
@@ -74,7 +74,7 @@ const Login = () => {
 
                     <p className="mt-4 text-sm text-center">
                         Not registered yet?{" "}
-                        <Link to="/signup" className="font-medium underline text-primary">Create an Account</Link>
+                        <Link to="/signup" className="font-medium underline text-blue-600">Create an Account</Link>
                     </p>
                 </form>
                 {loading?(<Box sx={{ display: 'flex',justifyContent:'center' }}>

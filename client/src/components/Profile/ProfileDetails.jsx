@@ -8,8 +8,8 @@ const ProfileDetails = ({handleEdit,data}) => {
         <div className="bg-white flex lg:w-[80%] w-full flex-wrap mx-auto px-4 mb-6">
             <div className="w-full lg:w-fit">
                 <div className="w-fit px-5  relative h-36 mx-auto">
-                    <div className=" w-[168px] h-[168px] rounded-[50%] border-[6px] relative top-[-30px]">
-                        <img src="https://media.istockphoto.com/id/1327592506/vector/default-avatar-photo-placeholder-icon-grey-profile-picture-business-man.jpg?s=612x612&w=0&k=20&c=BpR0FVaEa5F24GIw7K8nMWiiGmbb8qmhfkpXcp1dhQg=" className="w-full h-full rounded-[50%]" />
+                    <div className=" w-[168px] h-[168px] rounded-[50%] border-[6px] flex justify-center relative top-[-30px]">
+                        <img src="https://media.istockphoto.com/id/1327592506/vector/default-avatar-photo-placeholder-icon-grey-profile-picture-business-man.jpg?s=612x612&w=0&k=20&c=BpR0FVaEa5F24GIw7K8nMWiiGmbb8qmhfkpXcp1dhQg=" className="w-full h-full self-center rounded-[50%]" />
                     </div>
                     <div className="text-2xl bg-[#E4E6EB] w-[35px] h-[35px] rounded-[50%] pt-[3.5px] absolute bottom-[20px] right-[24px]"><HiCamera className="mx-auto" /></div>
                 </div>

@@ -8,6 +8,8 @@ import Profile from './components/Profile/Profile';
 import { ToastContainer } from 'react-toastify';
 import NavBar2 from './components/NavBar2/NavBar2';
 import Notification from './components/Notification/Notification';
+import UpcomingEvents from './pages/Home/UpcomingEvents';
+import ConnectCard from './pages/Home/ConnectCard';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/alumini" element={<NavBar2 />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="events" element={< UpcomingEvents/>} />
+          <Route path="spotlights" element={< ConnectCard/>} />
           <Route path="noti" element={<Notification />} />
         </Route >
         {/* <Route path="/" element={<><NavBar/><Home /></>} />
