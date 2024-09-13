@@ -15,6 +15,7 @@ import {
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
+import Feed from "../Home/Feed.jsx";
 
 // firebase rules
 // rules_version = '2';
@@ -205,7 +206,7 @@ function Dashboard() {
               </div>
               <div className="w-1/2 -ml-2 bg-black flex flex-col gap-4 align-middle justify-center p-8 rounded-r-xl">
                 <p className="text-white text-lg mt-2 font-bold">Amy Bennet</p>
-                <button className="mt-4 px-4 py-2 text-blue-600 bg-white rounded-full border border-blue-600 hover:bg-gray-200">
+                <button className="mt-4 px-4 py-2 text-blue-600 bg-white rounded-full border border-blue-600 hover:bg-gray-200" onClick={()=>{navigate("/alumini/spotlights")}}>
                   Read More
                 </button>
               </div>
@@ -222,8 +223,16 @@ function Dashboard() {
                   <h4>Posting</h4>
                 </div>
               )}
-                  
-                  
+                 <Feed/> 
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
+                 <Feed/>
               
             </div>
             <div className="right-side h-max lg:w-1/4 md:w-1/5 w-full flex flex-col gap-4 sticky md:top-20 top-16 right-0">
