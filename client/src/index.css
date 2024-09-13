@@ -11,22 +11,22 @@
   body{
     /* background: rgb(250, 255, 192); */
     background: white;
-    overflow-x: hidden;
+    overflow-x: hidden; 
   
   }
   }
   
   @layer components{
     .input-box{
-      @apply w-full text-sm bg-transparent px-5 py-3 rounded mb-4 outline-none border-slate-200
+      @apply w-full text-sm bg-transparent px-5 py-3 rounded mb-4 border-slate-200  
     }
   
     .btn-primary{
-      @apply w-full text-sm bg-primary text-white p-2 rounded my-1 hover:bg-[#edcf4a]
+      @apply w-full text-sm  bg-blue-600 text-white p-2 rounded my-1 hover:bg-blue-500
     }
   
     .icon-btn{
-       @apply text-xl text-slate-300 cursor-pointer hover:text-primary
+       @apply text-xl text-slate-300 cursor-pointer text-blue-500
     }
   
     .input-label{

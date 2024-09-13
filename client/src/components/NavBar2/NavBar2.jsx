@@ -80,7 +80,7 @@ const NavBar2 = ({ userInfo }) => {
         <div className="flex flex-row gap-4">
           {/* <IoMenu size={16} className="self-center"/> */}
           <h2 className="py-2 text-xs font-medium text-black lg:text-xl">
-            AlumConnect
+            Alum<span className="text-blue-600">Connect</span>
           </h2>
 
         </div>

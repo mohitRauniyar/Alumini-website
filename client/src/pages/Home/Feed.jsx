@@ -31,7 +31,7 @@ const Feed = () => {
           />
           <div className="px-5 font-medium flex justify-between w-full text-gray-900 dark:text-white">
             <div>
-              <div>Sonu Shah Haluwai</div>
+              <div>Alumini Number1</div>
               <div className="text-sm text-gray-500">1h ago</div>
             </div>
             {bookMarked ? (
