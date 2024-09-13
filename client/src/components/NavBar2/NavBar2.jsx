@@ -4,11 +4,10 @@ import ProfileInfo from "../Card/ProfileInfo";
 import { RiNotification3Line } from "react-icons/ri";
 import { RiMessage3Line } from "react-icons/ri";
 import { SlCalender } from "react-icons/sl";
-import { SlBriefcase } from "react-icons/sl";
+import { RxHamburgerMenu } from "react-icons/rx";
 import Notification from "../Notification/Notification";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { IoMenu } from "react-icons/io5";
-import { IoHomeOutline } from "react-icons/io5";
+import { IoHomeOutline, IoSettingsOutline } from "react-icons/io5";
 
 
 
@@ -78,6 +77,7 @@ const NavBar2 = ({ userInfo }) => {
           
       <div className="flex items-center justify-between px-3 py-2 bg-white drop-shadow lg:px-6 sticky z-50 top-0 left-0">
         <div className="flex flex-row gap-4">
+          <div className="lg:hidden self-center" ><RxHamburgerMenu size={16}/></div>
           {/* <IoMenu size={16} className="self-center"/> */}
           <h2 className="py-2 text-xs font-medium text-black lg:text-xl">
             Alum<span className="text-blue-600">Connect</span>
@@ -96,12 +96,12 @@ const NavBar2 = ({ userInfo }) => {
               <IoHomeOutline size={16}/>
             </Link>
             
-            <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center gap-1 hidden sm:block">
               <SlCalender size={16} />
               {/* <p className="text-xs lg:text-sm">Events</p> */}
             </div>
-            <div className="flex flex-col items-center gap-1">
-              <SlBriefcase size={16} />
+            <div className="flex flex-col items-center gap-1 hidden sm:block">
+              <IoSettingsOutline size={20} />
               {/* <p className="text-xs lg:text-sm">Career</p> */}
             </div>
           </div>

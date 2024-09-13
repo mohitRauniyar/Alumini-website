@@ -15,7 +15,7 @@ import {
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
-import Feed from "../Home/Feed.jsx";
+import Feed from "../../components/Card/Feed.jsx";
 
 // firebase rules
 // rules_version = '2';

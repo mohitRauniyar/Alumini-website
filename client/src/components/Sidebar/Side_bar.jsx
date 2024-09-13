@@ -1,7 +1,7 @@
 "use client";
 
 import { Sidebar } from "flowbite-react";
-import { MdSpaceDashboard, MdEventNote } from "react-icons/md";
+import { MdSpaceDashboard, MdEventNote, MdSettingsSuggest } from "react-icons/md";
 import { RiSearchEyeLine, RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { FaSchool } from "react-icons/fa6";
 import { FaSignOutAlt } from "react-icons/fa";
@@ -66,6 +66,11 @@ export default function Side_bar() {
           <Link to="/alumini/events">
             <Sidebar.Item icon={MdEventNote} as="div">
               Events
+            </Sidebar.Item>
+          </Link>
+          <Link to="/alumini/settings">
+            <Sidebar.Item icon={MdSettingsSuggest} as="div">
+              Settings
             </Sidebar.Item>
           </Link>
           <Sidebar.Item
